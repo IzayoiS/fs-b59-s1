@@ -1,0 +1,119 @@
+{{#> layout title='Project'}}
+{{#if errorMessage}}
+  <script>
+    alert("{{errorMessage}}");
+    window.history.back("/project");
+  </script>
+{{/if}}
+<main>
+  <section class="project-container">
+    <form action="/add-project" method="post" class="project-form">
+      <h1>ADD PROJECT</h1>
+
+      <div class="input-box">
+        <label for="project-name">Project Name</label>
+        <input type="text" id="project_name" name="project_name" required />
+      </div>
+
+      <div class="column">
+        <div class="input-box">
+          <label for="start-date">Start Date</label>
+          <input type="date" id="start_date" name="start_date" required />
+        </div>
+        <div class="input-box">
+          <label for="end-date">End Date</label>
+          <input type="date" id="end_date" name="end_date" required />
+        </div>
+      </div>
+
+      <div class="input-box">
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          name="description"
+          rows="4"
+          required
+        ></textarea>
+      </div>
+
+      <div class="tech-box">
+        <label>Technologies</label>
+        <div class="tech-option">
+          <div class="tech">
+            <input type="checkbox" id="check-nodejs" name="tech" value="check-nodejs"/>
+            <label for="check-nodejs">Node Js</label>
+          </div>
+          <div class="tech">
+            <input type="checkbox" id="check-reactjs" name="tech" value="check-reactjs"/>
+            <label for="check-reactjs">React Js</label>
+          </div>
+          <div class="tech">
+            <input type="checkbox" id="check-nextjs" name="tech" value="check-nextjs"/>
+            <label for="check-nextjs">Next Js</label>
+          </div>
+          <div class="tech">
+            <input type="checkbox" id="check-typescript" name="tech" value="check-typescript"/>
+            <label for="check-typescript">Typescript</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="upload-box">
+        <label for="label-image">Upload Image</label>
+        <div class="image-group">
+          <label for="file_upload" class="choose-button">choose</label>
+          <input
+            id="file_upload"
+            type="file"
+            class="file-input"
+            onchange="updateFileName()"
+          />
+          <input
+            type="text"
+            id="file-name"
+            class="input-field"
+            placeholder=""
+            readonly
+          />
+          <div class="icon">
+            <i class="fas fa-paperclip"></i>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="post-btn">Submit</button>
+    </form>
+  </section>
+
+  <section>
+    <h2 class="project-list-title">MY PROJECT</h2>
+    {{#if projects.length}}
+    <div id="project-list" class="project-list">
+      {{#each projects}}
+      <div class="card">
+        <img
+          src={{ this.image }}
+          alt="Project Image"
+          class="card-image"
+        />
+        <h3><a href="#">{{ this.project_name }}</a></h3>
+        <p><strong>Durasi:</strong> {{ this.duration }} bulan</p>
+        <p><strong>Added:</strong> {{ formatDateToWIB this.postedAt }}</p>
+        <p>{{this.description}}</p>
+        <div class="tech-icons">
+          {{{ renderTechIcons this.technologies }}}
+        </div>
+        <p class="relative-time">{{getRelativeTime this.postedAt}}</p>
+        <div class="card-actions">
+          <button class="edit-btn" onclick="editProject(${index})">Edit</button>
+          <button class="delete-btn" onclick="deleteProject(${index})">Delete</button>
+        </div>
+      {{/each}}
+      </div>
+      {{else}}
+      <p class="text-empty-msg">Belum ada project yang di post</p>
+      {{/if}}
+    </div>
+  </section>
+</main>
+{{/layout}}
