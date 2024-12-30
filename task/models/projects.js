@@ -20,10 +20,6 @@ module.exports = (sequelize, DataTypes) => {
       end_date: DataTypes.DATE,
       image: DataTypes.STRING,
       technologies: DataTypes.ARRAY(DataTypes.STRING),
-      posted_at: {
-        type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW,
-      },
     },
     {
       sequelize,

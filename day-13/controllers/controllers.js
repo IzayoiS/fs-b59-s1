@@ -11,26 +11,26 @@ function renderHome(req, res) {
 // Project
 
 let projects = [
-  // {
-  //   project_name: "Test",
-  //   description: "dqwdqwdqw",
-  //   duration: 2,
-  //   start_date: "2024-10-04",
-  //   end_date: "2024-12-27",
-  //   image: "https://picsum.photos/id/1/200/100",
-  //   technologies: ["check-reactjs", "check-typescript"],
-  //   postedAt: new Date(),
-  // },
-  // {
-  //   project_name: "Tesqwdt",
-  //   description: "dqwdqwdqw",
-  //   duration: 2,
-  //   start_date: "2024-10-04",
-  //   end_date: "2024-12-27",
-  //   image: "https://picsum.photos/id/1/200/100",
-  //   technologies: ["check-reactjs", "check-typescript"],
-  //   postedAt: new Date(),
-  // },
+  {
+    project_name: "Test",
+    description: "dqwdqwdqw",
+    duration: 2,
+    start_date: "2024-10-04",
+    end_date: "2024-12-27",
+    image: "https://picsum.photos/id/1/200/100",
+    technologies: ["check-reactjs", "check-typescript"],
+    postedAt: new Date(),
+  },
+  {
+    project_name: "Tesqwdt",
+    description: "dqwdqwdqw",
+    duration: 2,
+    start_date: "2024-10-04",
+    end_date: "2024-12-27",
+    image: "https://picsum.photos/id/1/200/100",
+    technologies: ["check-reactjs", "check-typescript"],
+    postedAt: new Date(),
+  },
 ];
 
 function renderProject(req, res) {

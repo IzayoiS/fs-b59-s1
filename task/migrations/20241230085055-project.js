@@ -37,17 +37,15 @@ module.exports = {
         type: Sequelize.ARRAY(Sequelize.STRING),
         allowNull: true,
       },
-      posted_at: {
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW,
-      },
       createdAt: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW,
+        allowNull: false,
       },
       updatedAt: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW,
+        allowNull: false,
       },
     });
   },

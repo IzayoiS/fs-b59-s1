@@ -6,7 +6,7 @@
       <div class="project-detail-content">
         <img src="{{ data.image }}" alt="project detail" class="project-detail-img">
         <div class="added-info">
-          <p><i class="fa-solid fa-calendar-days"></i> Added: {{ formatDateToWIB data.posted_at }}</p>
+          <p><i class="fa-solid fa-calendar-days"></i> Added: {{ formatDateToWIB data.createdAt }}</p>
           <p><i class="fa-regular fa-calendar-check"></i> Durasi: {{ data.duration }} Bulan</p>
         </div>
         <p class="project-detail-description">{{ data.description }}</p>

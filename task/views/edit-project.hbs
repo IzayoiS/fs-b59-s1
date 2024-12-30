@@ -7,7 +7,8 @@
 {{/if}}
 <main>
   <section class="project-container">
-    <form action="/update-project/{{ index }}?_method=PATCH" method="post" class="project-form">
+    <form id="updateProjectForm" action="/update-project/{{ data.id }}?_method=PATCH" method="post"
+      class="project-form">
       <h1>EDIT PROJECT</h1>
 
       <div class="input-box">
@@ -30,6 +31,34 @@
         <label for="description">Description</label>
         <textarea id="description" name="description" rows="4" required>{{ data.description }}</textarea>
       </div>
+
+      {{!-- <div class="tech-box">
+        <label>Technologies</label>
+        <div class="tech-option">
+          {{#each technologiesList}}
+          <div class="tech">
+            <input type="checkbox" id="check-{{ this }}" name="tech" value="check-{{ this }}" {{isSelected
+              data.technologies this }} />
+            <label for="check-{{ this }}">{{ this }}</label>
+          </div>
+          <div class="tech">
+            <input type="checkbox" id="check-{{ this }}" name="tech" value="check-{{ this }}" {{isSelected
+              data.technologies this }} />
+            <label for="check-{{ this }}">{{ this }}</label>
+          </div>
+          <div class="tech">
+            <input type="checkbox" id="check-{{ this }}" name="tech" value="check-{{ this }}" {{isSelected
+              data.technologies this }} />
+            <label for="check-{{ this }}">{{ this }}</label>
+          </div>
+          <div class="tech">
+            <input type="checkbox" id="check-{{ this }}" name="tech" value="check-{{ this }}" {{isSelected
+              data.technologies this }} />
+            <label for="check-{{ this }}">{{ this }}</label>
+          </div>
+          {{/each}}
+        </div>
+      </div> --}}
 
       <div class="tech-box">
         <label>Technologies</label>
@@ -69,9 +98,8 @@
         </div>
       </div>
 
-      <button type="submit" class="post-btn">Save</button>
+      <button type="submit" id="saveBtn" class="post-btn">Save</button>
     </form>
   </section>
-
 </main>
 {{/layout}}

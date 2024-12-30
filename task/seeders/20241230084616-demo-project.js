@@ -12,7 +12,8 @@ module.exports = {
         end_date: "2024-06-30",
         image: "https://picsum.photos/200/100",
         technologies: ["check-reactjs", "check-nodejs"],
-        posted_at: new Date(),
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         project_name: "Project B",
@@ -22,7 +23,8 @@ module.exports = {
         end_date: "2024-06-01",
         image: "https://picsum.photos/200/100",
         technologies: ["check-nextjs", "check-typescript"],
-        posted_at: new Date(),
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
     ]);
   },

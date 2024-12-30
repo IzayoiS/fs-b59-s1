@@ -12,6 +12,25 @@ navLinks.forEach((link) => {
   }
 });
 
+// Sweet Alert
+
+document.getElementById("saveBtn").addEventListener("click", function (e) {
+  e.preventDefault();
+
+  Swal.fire({
+    title: "Are you sure?",
+    text: "Do you want to save the changes?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Yes, save it!",
+    cancelButtonText: "No, cancel!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      document.getElementById("updateProjectForm").submit();
+    }
+  });
+});
+
 // File Name Display Project
 
 function updateFileName() {
