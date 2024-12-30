@@ -1,0 +1,37 @@
+{{#> layout title='Project'}}
+<main>
+  <section class="projects">
+    <div class="d-flex my-4">
+      <a class="btn btn-outline-primary ms-auto text-black me-sm-2" href="/add-project">New Project</a>
+    </div>
+
+    <h2 class="project-list-title">MY PROJECT</h2>
+    {{#if projects.length}}
+    <div id="project-list" class="project-list">
+      {{#each projects}}
+      <div class="card">
+        <img src={{ this.image }} alt="Project Image" class="card-image" />
+        <h3><a href="/project-detail/{{ @index }}">{{ this.project_name }}</a></h3>
+        <p><strong>Durasi:</strong> {{ this.duration }} bulan</p>
+        <p><strong>Added:</strong> {{ formatDateToWIB this.posted_at }}</p>
+        <p>{{this.description}}</p>
+        <div class="tech-icons">
+          {{{ renderTechIcons this.technologies }}}
+        </div>
+        <p class="relative-time">{{getRelativeTime this.posted_at}}</p>
+        <div class="card-actions">
+          <a href="/edit-project/{{ @index }}" class="edit-btn">Edit</a>
+          <form action="/delete-project/{{id}}?_method=DELETE" method="post">
+            <button onclick="return confirm('are u sure want to delete?')" type="submit"
+              class="delete-btn">Delete</button>
+          </form>
+        </div>
+      </div>
+      {{/each}}
+      {{else}}
+      <p class="text-empty-msg">Belum ada project yang di post</p>
+      {{/if}}
+    </div>
+  </section>
+</main>
+{{/layout}}
